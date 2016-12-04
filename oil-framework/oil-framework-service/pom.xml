@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+   <artifactId>oil-framework-service</artifactId>
+  <parent>
+    <groupId>com.oil</groupId>
+    <artifactId>oil-framework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <name>oil-framework-service</name>
+  <url>http://maven.apache.org</url>
+  <packaging>jar</packaging>
+  
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.oil</groupId>
+			<artifactId>oil-framework-common</artifactId>
+		</dependency>
+		 <!-- spring 核心依赖 -->
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-core</artifactId>
+					</dependency>
+					<dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-beans</artifactId>
+			        </dependency>
+			        <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-context</artifactId>
+			        </dependency>
+			        <dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context-support</artifactId>
+					</dependency>
+			  <!-- spring dao层依赖 -->    
+			        <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-jdbc</artifactId>
+			        </dependency>
+			        <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-tx</artifactId>
+			        </dependency>
+			   <!--spring web相关依赖 -->
+			         <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-web</artifactId>
+			        </dependency>
+			        <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-webmvc</artifactId>
+			        </dependency>
+			  <!-- spring apo相关依赖 -->
+			  		<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-aop</artifactId>
+					</dependency>
+			  		<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+					</dependency>      
+			  <!-- spring test相关依赖 -->      
+			        <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>spring-test</artifactId>
+			        </dependency>
+			   <!--2：数据库相关依赖 -->	
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.tomcat</groupId>
+						<artifactId>tomcat-jdbc</artifactId>
+					</dependency>     
+					<dependency>
+						<groupId>org.mybatis</groupId>
+						<artifactId>mybatis</artifactId>
+					</dependency>		
+					<dependency>
+						<groupId>org.mybatis</groupId>
+						<artifactId>mybatis-spring</artifactId>
+					</dependency>
+  </dependencies>
+</project>

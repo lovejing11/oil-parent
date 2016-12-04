@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+            
+    <util:properties id="serviceDsConfig" location="classpath:properties/service-datasource.properties"></util:properties>
+
+	<bean id="serviceDataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+ 		<property name="url" value="#{serviceDsConfig['jdbc.url']}" /> 
+ 		<property name="username" value="#{serviceDsConfig['jdbc.username']}" /> 
+ 		<property name="password" value="#{serviceDsConfig['jdbc.password']}" /> 
+		<property name="defaultAutoCommit" value="true" />
+		<property name="defaultTransactionIsolation" value="4" />
+		<property name="initialSize" value="#{serviceDsConfig['jdbc.default.pool.initialSize']}" />
+		<property name="minIdle" value="#{serviceDsConfig['jdbc.default.pool.minIdle']}" />
+		<property name="maxIdle" value="#{serviceDsConfig['jdbc.default.pool.maxIdle']}" />
+		<property name="maxActive" value="#{serviceDsConfig['jdbc.default.pool.maxActive']}" />
+		<property name="maxWait" value="#{serviceDsConfig['jdbc.default.pool.maxWait']}" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="true" />
+		<property name="validationQuery" value="/* ping */ select 1" />
+		<property name="validationInterval" value="#{serviceDsConfig['jdbc.default.pool.validationInterval']}" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="#{serviceDsConfig['jdbc.default.pool.timeBetweenEvictionRunsMillis']}" />
+		<property name="minEvictableIdleTimeMillis" value="#{serviceDsConfig['jdbc.default.pool.minEvictableIdleTimeMillis']}" />
+	</bean>
+</beans>

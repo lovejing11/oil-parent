@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+   <artifactId>oil-service-api</artifactId>
+  <parent>
+	    <groupId>com.oil</groupId>
+	    <artifactId>oil-service</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <name>oil-service-api</name>
+  <url>http://maven.apache.org</url>
+  <packaging>jar</packaging>
+  
+  <dependencies>
+  			<dependency>
+			<groupId>com.oil</groupId>
+			<artifactId>oil-framework-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.oil</groupId>
+			<artifactId>oil-framework-service</artifactId>
+		</dependency>
+  </dependencies>
+  <profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>devtest</id>
+		</profile>
+		<profile>
+			<id>test</id>
+		</profile>
+		<profile>
+			<id>prd</id>
+		</profile>
+	</profiles>
+</project>

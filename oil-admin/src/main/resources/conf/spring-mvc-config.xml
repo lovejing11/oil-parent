@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc
+			http://www.springframework.org/schema/mvc/spring-mvc.xsd
+			http://www.springframework.org/schema/task    
+        	http://www.springframework.org/schema/task/spring-task.xsd    
+     		http://www.springframework.org/schema/util 
+            http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- spring配置 -->
+	<context:component-scan base-package="com.oil.av.web.admin.controller"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" >
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="dateFormat">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+							</bean>
+						</property>
+					</bean>
+				</property>
+				
+				</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<mvc:resources mapping="/resources/**" location="/resources/">
+		<mvc:cache-control max-age="3600" cache-public="true" />
+	</mvc:resources>
+	<mvc:default-servlet-handler/>  
+	<mvc:view-controller path="/" view-name="forward:/index" />
+
+
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		
+		<!-- 设置上传文件的最大尺寸为25MB(单反图片一般不会大于次大小） -->
+		<!-- <property name="maxUploadSize" value="26214400" /> -->
+		<!-- 由于上传渠道包需要，暂时设置大小为1GB限制 -->
+		<property name="maxUploadSize" value="1073741824" />
+
+		<!-- 设置上传文件的内存缓存为10MB -->
+		<property name="maxInMemorySize" value="10485760"></property>
+	</bean>
+
+
+	
+	
+		
+	<!-- 拦截器配置 拦截所有Controller 资源文件不拦截 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*/*" />
+			<mvc:exclude-mapping path="/resources/**" />
+			<mvc:exclude-mapping path="/login" />
+			<bean class="com.oil.av.web.admin.interceptor.ActionLogHandlerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+</beans>

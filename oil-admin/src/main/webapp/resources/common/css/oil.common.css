@@ -1,0 +1,48 @@
+
+/* .modal-primary .modal-body {
+  background-color: #3c8dbc !important;
+}
+.modal-success .modal-body {
+  background-color: #00a65a !important;
+}
+.modal-danger .modal-body {
+  background-color: #dd4b39 !important;
+}
+.modal-info .modal-body {
+  background-color: #00c0ef !important;
+}
+
+.modal-warning .modal-body {
+  background-color: #f39c12 !important;
+}
+ */
+/*  .modal-header{
+    background-color: #00a7d0 !important;
+} */
+
+
+ .loading {padding:0;background:rgba(86,86,86,0.42);width:100%;top:0;z-index:99;left:0;height:100%;margin:0 auto;position:fixed;}
+ 
+ @media (max-width: 1199px ) {
+	.row{
+	    margin-top: 5px;
+	    margin-bottom: 5px;
+	}
+	.form-group{
+	    margin-top: 5px;
+	    margin-bottom: 5px;
+	}
+}
+
+@media  screen and (min-width: 768px) and (max-width:639px){
+	.form-group {
+	    width: auto;
+	}
+}
+
+@media  screen and (min-width: 768px){
+	#queryForm .form-group { margin-right: 10px; margin-bottom: 10px;}
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+	margin-top: 0px;
+}
