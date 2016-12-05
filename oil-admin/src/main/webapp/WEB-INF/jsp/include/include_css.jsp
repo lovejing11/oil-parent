@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/jsp/include/public.jsp"%> 
+<%@ include file="/WEB-INF/jsp//include/public.jsp"%> 
 <!-- Bootstrap 3.3.6 -->
 <link rel="stylesheet" href="${ctx}/resources/plugins/bootstrap/css/bootstrap.min.css">
 <!-- Font Awesome -->
