@@ -16,7 +16,7 @@
 	
 	<modules>
 		<!-- aikxian框架 (pom) -->
-		<module>aikxian-framework</module>
+		<module>oil-framework</module>
 		<!-- 服务(pom) -->
 		<module>oil-service</module>
 		<!-- 接口api(war) 
