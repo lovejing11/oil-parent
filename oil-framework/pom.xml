@@ -8,8 +8,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <packaging>pom</packaging>
   <name>oil-framework</name>
+  <url>http://maven.apache.org</url>
+  <packaging>pom</packaging>
   
   <modules>
     <module>oil-framework-common</module>
